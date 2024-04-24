@@ -3,6 +3,15 @@ package org.example.utils.interfaces.utils;
 import org.example.utils.interfaces.MyStackInterface;
 
 public class MyStack<T> implements MyStackInterface<T> {
+    private Object[] elements;
+    private int size;
+    private static final int DEFAULT_CAPACITY = 10;
+    public MyStack(){
+        this.elements = new Object [DEFAULT_CAPACITY];
+        this.size = 0;
+    }
+
+
     @Override
     public void push(T item) {
 
