@@ -7,7 +7,6 @@ public interface MyMinHeapInterface<T> {
     T get(int index);
     T getSmallest();
     void clear();
-    Object[] toArray();
 
     void printArr();
 
