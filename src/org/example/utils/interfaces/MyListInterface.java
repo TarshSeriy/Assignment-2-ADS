@@ -20,4 +20,6 @@ public interface MyListInterface<T> extends Iterable<T> {
     public Object[] toArray();
     void clear();
     int size();
+
+    boolean isEmpty();
 }
