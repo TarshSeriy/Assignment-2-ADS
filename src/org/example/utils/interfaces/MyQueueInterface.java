@@ -9,4 +9,7 @@ public interface MyQueueInterface<T> {
     boolean isEmpty();
     int size();
     void clear();
+    boolean exists(Object object);
+
+
 }
