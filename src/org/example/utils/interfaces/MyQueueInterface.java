@@ -12,4 +12,5 @@ public interface MyQueueInterface<T> {
     boolean exists(Object object);
 
 
+
 }
