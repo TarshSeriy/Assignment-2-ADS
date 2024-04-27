@@ -1,10 +1,11 @@
-package org.example.utils.classes;
+package org.example.utils.classes.myarray;
 
 import org.example.utils.interfaces.MyListInterface;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import org.example.utils.sort.MergeSort;
 
 public class MyArrayList<T> implements MyListInterface<T> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -81,7 +82,17 @@ public class MyArrayList<T> implements MyListInterface<T> {
 
     @Override
     public void sort() {
-        Arrays.sort(Arrays.copyOf(elements, size));
+        Comparable[] array = new Comparable[size];
+        System.arraycopy(elements, 0, array, 0, size);
+        MergeSort.sort(array, 0, size - 1);
+        arrayToArrayList((T[]) array);
+    }
+
+    private void arrayToArrayList(T[] array) {
+        clear();
+        for (T item : array) {
+            add(item);
+        }
     }
 
     @Override

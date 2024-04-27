@@ -1,4 +1,4 @@
-package org.example.utils.classes;
+package org.example.utils.classes.myarray;
 
 import org.example.utils.interfaces.MyStackInterface;
 

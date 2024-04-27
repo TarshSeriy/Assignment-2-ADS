@@ -1,7 +1,10 @@
-package org.example.utils.classes;
+package org.example.utils.classes.myarray;
 
 import org.example.utils.interfaces.MyQueueInterface;
 import org.example.utils.interfaces.MyStackInterface;
+
+import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class MyArrayListQueue<T> implements MyQueueInterface<T> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -21,32 +24,47 @@ public class MyArrayListQueue<T> implements MyQueueInterface<T> {
         if (size == elements.length){
             increaseCapacity();
         }
-
+        rear = (rear + 1) % elements.length;
+        elements[rear] = item;
+        size++;
     }
 
     @Override
     public T dequeue() {
-        return null;
+        if(size == elements.length){
+            throw new NoSuchElementException("Queue is empty");
+        }
+        T item  = peek();
+        elements[front] = null;
+        front = (front + 1) % elements.length;
+        size --;
+        return item;
     }
 
     @Override
     public T peek() {
-        return null;
+        if(isEmpty()){
+            throw new NoSuchElementException("Queue is empty");
+        }
+        return (T) elements[front];
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public void clear() {
-
+        Arrays.fill(elements, null);
+        size = 0;
+        front = 0;
+        rear = -1;
     }
     private void increaseCapacity(){
         int newCapacity = elements.length * 2;
