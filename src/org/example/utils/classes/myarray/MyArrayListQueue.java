@@ -66,6 +66,12 @@ public class MyArrayListQueue<T> implements MyQueueInterface<T> {
         front = 0;
         rear = -1;
     }
+
+    @Override
+    public boolean exists(Object object) {
+        return false;
+    }
+
     private void increaseCapacity(){
         int newCapacity = elements.length * 2;
         Object[] newElements = new Object[newCapacity];

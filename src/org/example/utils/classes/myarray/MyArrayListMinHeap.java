@@ -4,6 +4,7 @@ import org.example.utils.interfaces.MyMinHeapInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class MyArrayListMinHeap<T extends Comparable<T>> implements MyMinHeapInterface<T> {
@@ -90,5 +91,20 @@ public class MyArrayListMinHeap<T extends Comparable<T>> implements MyMinHeapInt
             System.out.print(item + " ");
         }
         System.out.println();
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public Iterator<T> heapIterator() {
+        return null;
     }
 }
